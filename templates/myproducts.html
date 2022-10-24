@@ -35,32 +35,85 @@
         <a href="/logout" class="btn btn-danger btn-lg mb-2" onclick="logout()">Log Out</a>
         <marquee class="display-4 bg-info" direction="left">AFFORDABLE PRICES NATIONWIDE!!!</marquee>
 
-        <div class="gallery card shadow bg-secondary p-5">
-                {% for item in mydata %}
+        <div class="gallery card shadow bg-secondary p-5 mb-5">
+                {% for phone in phones %}
 
-<!--            with cards-->
 
             <div class="card shadow" style="border-radius:10px;">
             <div class="gallery-item">
-                <img class="gallery-image" src="../static/images/{{item[7]}}" alt="" style="border-radius:10px;">
+                <img class="gallery-image" src="../static/images/{{phone[7]}}" alt="" style="border-radius:10px;">
             </div>
 
             <div class="card-body text-center">
 
-               <p class="display-5">{{item[1]}}</p>
+               <p class="display-5">{{phone[1]}}</p>
 
-                <p class="display-6">KES{{item[3]}}</p>
+                <p class="display-6">KES{{phone[3]}}</p>
 
-                <p>Discount {{item[4]}}</p>
-                 <p class="lead">{{item[2]}}</p>
+                <p>Discount {{phone[4]}}</p>
+                 <p class="lead">{{phone[2]}}</p>
 
-                <a href="" class="btn btn-primary btn-lg">Add to Cart</a>
+                <a href="/single/{{phone[0]}}" class="btn btn-primary btn-lg">Add to Cart</a>
 
             </div>
 
           </div>
                 {% endfor %}
-        </div>
+    </div>
+        <marquee class="display-4 bg-white" direction="bounce">BLACK FRIDAY IS HERE!!!</marquee>
+        <div class="gallery card shadow bg-secondary p-5 mb-5">
+                {% for sneaker in sneakers %}
+
+
+            <div class="card shadow" style="border-radius:10px;">
+            <div class="gallery-item">
+                <img class="gallery-image" src="../static/images/{{sneaker[7]}}" alt="" style="border-radius:10px;">
+            </div>
+
+            <div class="card-body text-center">
+
+               <p class="display-5">{{sneaker[1]}}</p>
+
+                <p class="display-6">KES{{sneaker[3]}}</p>
+
+                <p>Discount {{sneaker[4]}}</p>
+                 <p class="lead">{{sneaker[2]}}</p>
+
+                <a href="/single/{{sneaker[0]}}" class="btn btn-primary btn-lg">Add to Cart</a>
+
+            </div>
+
+          </div>
+                {% endfor %}
+
+
+    </div>
+         <marquee class="display-4 bg-info" direction="bounce">SHOP NOW !!!</marquee>
+         <div class="gallery card shadow bg-secondary p-5 mb-3">
+                {% for electronic in electronics %}
+
+
+            <div class="card shadow" style="border-radius:10px;">
+            <div class="gallery-item">
+                <img class="gallery-image" src="../static/images/{{electronic[7]}}" alt="" style="border-radius:10px;">
+            </div>
+
+            <div class="card-body text-center">
+
+               <p class="display-5">{{electronic[1]}}</p>
+
+                <p class="display-6">KES{{electronic[3]}}</p>
+
+                <p>Discount {{electronic[4]}}</p>
+                 <p class="lead">{{electronic[2]}}</p>
+
+                <a href="/single/{{electronic[0]}}" class="btn btn-primary btn-lg">Add to Cart</a>
+
+            </div>
+
+          </div>
+                {% endfor %}
+    </div>
 
     </div>
 </body>

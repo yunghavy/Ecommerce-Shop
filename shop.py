@@ -20,13 +20,22 @@ app.secret_key = "IloveProgramming"
 def products():
     if 'key' in session:
 
-        cursor = connection.cursor()
-        sql = 'SELECT * FROM products'
-        cursor.execute(sql)
+        cursor_phones = connection.cursor()
+        sql_phones = 'SELECT * FROM products WHERE product_category = "phones" LIMIT 6'
+        cursor_phones.execute(sql_phones)
+        phones = cursor_phones.fetchall()
 
-        data = cursor.fetchall()
-        print(data)
-        return render_template('myproducts.html', mydata=data)
+        cursor_electronic = connection.cursor()
+        sql_electronic = 'SELECT * FROM products WHERE product_category = "electronic" LIMIT 6'
+        cursor_electronic.execute(sql_electronic)
+        electronics = cursor_electronic.fetchall()
+
+        cursor_sneakers = connection.cursor()
+        sql_sneakers = 'SELECT * FROM products WHERE product_category = "Sneakers" LIMIT 6'
+        cursor_sneakers.execute(sql_sneakers)
+        sneakers = cursor_sneakers.fetchall()
+
+        return render_template('myproducts.html', phones=phones, electronics=electronics, sneakers=sneakers)
     else:
         return redirect('/login')
 
@@ -73,6 +82,18 @@ def signup():
 def logout():
     if 'key' in session:
         session.clear()
+        return redirect('/login')
+
+
+@app.route('/single/<product_id>')
+def single(product_id):
+    if 'key' in session:
+        cursor = connection.cursor()
+        sql = 'SELECT * FROM products WHERE product_id=%s'
+        cursor.execute(sql, product_id)
+        row = cursor.fetchone()
+        return render_template('single.html', item_data=row)
+    else:
         return redirect('/login')
 
 
