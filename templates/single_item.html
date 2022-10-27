@@ -11,27 +11,27 @@
 
 </head>
 <body style="background-color:blue;">
- <h2 class="text-white text-center p-3">Check your product {{ session['key']}}</h2>
+ <h2 class="text-white text-center p-3">Buy your medicine {{ session['key']}}</h2>
 
 <div class="container card shadow bg-white mt-5">
     <section class="row">
         <div class="col-6  p-5">
-            <h3 class="text-center">{{item_data[6]}}</h3>
+            <h3 class="text-center">{{item[1]}}</h3>
 
-            <img src="../static/images/{{item_data[7]}}" alt="" style="border-radius:25px; width:300px; height:500px;" class="img-thumbnail">
+            <img src="../static/images/{{item[6]}}" alt="" style="border-radius:25px; width:300px; height:500px;" class="img-thumbnail">
 
 
         </div>
 
             <div class="col-6 ">
                 <div class="card shadow mt-2 text-center">
-                    <h3>{{item_data[1]}}</h3>
+                    <h3>{{item[1]}}</h3>
 
-                    <h3> price : {{item_data[3]}} KES</h3>
-                    <h3> Discount : {{item_data[4]}} KES</h3>
-                    <h5> color : {{item_data[8]}}</h5>
+                    <h3> price : {{item[5]}} KES</h3>
+                    <h3> quantity : {{item[4]}} KES</h3>
+                    <h5> category : {{item[2]}}</h5>
 
-                    <P class="lead">{{item_data[2]}}</P>
+                    <P class="lead">{{item[3]}}</P>
                     <button type="button" class="btn btn-primary btn-md" style="margin-left:100px; margin-right:100px;" data-bs-toggle="modal" data-bs-target="#payment">Pay Now</button>
 
                 </div>
@@ -42,11 +42,11 @@
 
     </section>
 
-    <div class="modal fade bg-primarys" id="payment">
+    <div class="modal fade bg-primary" id="payment">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center">Pay your product Here</h5>
+                    <h5 class="modal-title text-center">Pay your medicine Here</h5>
                     <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
 
                 </div>
@@ -82,25 +82,3 @@
 </body>
 </html>
 
-<!--<section class="row card shadow p-3 m-3 bg-secondary">-->
-
-
-<!--        <div class="col-6-md col-6-lg col-12-sm bg-info">-->
-<!--            <div class="card shadow p-3 bg-warning">-->
-<!--                <img src="../static/images/{{item_data[7]}}" alt="" style="border-radius:25px; width:300px; height:500px;" class="img-thumbnail">-->
-
-
-<!--            </div>-->
-
-<!--        </div>-->
-
-<!--        <div class="col-6-md col-6-lg col-12-sm ">-->
-<!--            <h3>{{item_data[1]}}</h3>-->
-
-
-<!--        </div>-->
-
-
-
-
-<!--    </section>-->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dawa</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='resource/products.css')}}">
+</head>
+<body>
+ <div class="container">
+
+
+        <h1 class="heading text-info">MEDICINE SHOP <span>Welcome!</span></h1>
+         <b>
+           <h2>welcome {{session['key']}}</h2>
+        </b>
+
+        <a href="/logout" class="btn btn-danger btn-lg mb-2" onclick="logout()">Log Out</a>
+        <a href="/" class="btn btn-dark btn-lg mb-2" >Home</a>
+
+        <marquee class="display-4 bg-info" direction="left">AFFORDABLE DAWA NATIONWIDE!!!</marquee>
+        <div class="gallery card shadow bg-secondary p-5 mb-5">
+                {% for x in medicine %}
+
+
+            <div class="card shadow" style="border-radius:10px;">
+            <div class="gallery-item">
+                <img class="gallery-image" src="../static/images/{{x[6]}}" alt="" style="border-radius:10px;">
+            </div>
+
+            <div class="card-body text-center">
+
+               <p class="display-5">{{x[1]}}</p>
+
+                <p class="display-6">KES{{x[5]}}</p>
+
+                <p>Quantity {{x[4]}}</p>
+                 <p class="lead">{{x[2]}}</p>
+
+                <a href="/single_item/{{x[0]}}" class="btn btn-primary btn-lg">Add to Cart</a>
+
+            </div>
+            </div>
+          {% endfor %}
+          </div>
+
+ </div>
+</body>
+</html>
